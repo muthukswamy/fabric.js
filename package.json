@@ -1,14 +1,11 @@
 {
-  "name": "fabric",
+  "name": "@pappaya/fabric",
   "description": "Object model for HTML5 canvas, and SVG-to-canvas parser. Backed by jsdom and node-canvas.",
   "homepage": "http://fabricjs.com/",
-  "version": "3.6.3",
-  "authors": "Juriy Zaytsev <kangax@gmail.com>",
+  "version": "4.0.0-beta.12",
+  "author": "Juriy Zaytsev <kangax@gmail.com>",
   "contributors": [
-    {
-      "name": "Andrea Bogazzi",
-      "email": "andreabogazzi79@gmail.com"
-    }
+    "Andrea Bogazzi <andreabogazzi79@gmail.com>"
   ],
   "keywords": [
     "canvas",
@@ -33,7 +30,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/fabricjs/fabric.js"
+    "url": "git+https://github.com/muthukswamy/fabric.js.git"
   },
   "bugs": {
     "url": "https://github.com/fabricjs/fabric.js/issues"
@@ -43,6 +40,7 @@
     "build": "node build.js modules=ALL requirejs exclude=gestures,accessors",
     "build:fast": "node build.js modules=ALL requirejs fast exclude=gestures,accessors",
     "build:watch": "onchange 'src/**/**' 'HEADER.js' 'lib/**/**' -- npm run build_export",
+    "link:watch": "onchange 'src/**/**' 'HEADER.js' 'lib/**/**' -- npm link",
     "build_with_gestures": "node build.js modules=ALL exclude=accessors",
     "build_export": "npm run build:fast && npm run export_dist_to_site",
     "test:single": "qunit test/node_test_setup.js test/lib",
@@ -77,5 +75,12 @@
     "node": ">=8.0.0"
   },
   "main": "./dist/fabric.js",
-  "dependencies": {}
+  "dependencies": {
+    "canvas": "^2.6.1",
+    "jsdom": "^15.1.0"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  }
 }
